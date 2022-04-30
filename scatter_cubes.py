@@ -13,6 +13,6 @@ ax.set_xlabel("Wartość", fontsize=14)
 ax.set_ylabel("Sześciany wartości", fontsize=14)
 
 #Zdefiniowanie zakresu dla kadej osi
-ax.axis([0, 5100, 0, 100000020000])
+ax.axis([0, 5100, 0, 130000000000])
 
 plt.show()
