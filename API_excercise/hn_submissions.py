@@ -10,7 +10,7 @@ print(f"Kod stanu: {r.status_code}")
 #Przetworzenie informacji o kadym artykule
 submission_ids = r.json()
 submission_dicts = []
-for submission_id in submission_ids[:10]:
+for submission_id in submission_ids[:30]:
     #Przygotowanie oddzielnego wywołania API dla kazdego artykułu
     url = f'https://hacker-news.firebaseio.com/v0/item/{submission_id}.json'
     r = requests.get(url)
@@ -21,7 +21,7 @@ for submission_id in submission_ids[:10]:
     submission_dict = {
         'title': response_dict['title'],
         'hn_link': f"http://news.ycombinator.com/item?id={submission_id}",
-        'comments': response_dict['descendants'],
+        'comments': response_dict.get('descendants', 0),
     }
     submission_dicts.append(submission_dict)
 
